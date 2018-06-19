@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    .container {
+      width: 500px;
+      height: 400px;
+      border: 1px solid #000;
+      overflow: hidden;
+      margin: 50px auto;
+      box-sizing: border-box;
+      position: relative;
+    }
+    .container .drop {
+      width: 50px;
+      height: 50px;
+      background: #ff0000;
+      position: absolute;
+      left: 0;
+      top: 0;
+      transition: all .1s ease;
+      cursor: move;
+    }
+  </style>
+</head>
+<body>
+  <div class="container" id='container'>
+    <div class="drop" id='drop'></div>
+  </div>
+  <script>
+    window.onload = function () {
+      var drop = document.getElementById('drop')
+      var container = document.getElementById('container')
+      var pWidth = container.offsetWidth
+      var pHeight = container.offsetHeight
+      var dWidth = drop.offsetWidth
+      var dHeight = drop.offsetHeight
+      var maxLeft = pWidth - dWidth
+      var maxTop = pHeight - dHeight
+      console.log(maxLeft)
+      console.log(maxTop)
+      var canMove = false
+      var x = 0,
+          y = 0,
+          top = 0,
+          left = 0
+      drop.addEventListener('mousedown', function (e) {
+        console.log(e)
+        x = e.clientX
+        y = e.clientY
+        top = e.target.offsetTop
+        left = e.target.offsetLeft
+        canMove = true
+      }, false)
+      document.addEventListener('mousemove', function (e) {
+        if (canMove) {
+          transformPosition(e.clientX - x, e.clientY - y)
+        }
+      }, false)
+      
+      document.addEventListener('mouseup', function () {
+        console.log('up')
+        canMove = false
+      }, false)
+      function transformPosition(pageX, pageY) {
+        var cLeft = pageX + left
+        var cTop = pageY + top
+        if (cLeft < 0) {
+          cLeft = 0
+        }
+        if (cTop < 0) {
+          cTop = 0
+        }
+        if (cLeft > maxLeft) {
+          cLeft = maxLeft
+        }
+        if (cTop > maxTop) {
+          cTop = maxTop
+        }
+        drop.style.top = cTop + 'px'
+        drop.style.left = cLeft + 'px'
+      }
+    }
+    
+  </script>
+</body>
+</html>
