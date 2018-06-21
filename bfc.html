@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    * {margin: 0; padding: 0}
+    .container {
+      background: #32e24f;
+      width: 540px;
+      overflow: hidden;
+    }
+    .container .float{
+      float: left;
+      width: 250px;
+      height: 250px;
+      background: #e99922;
+      margin: 10px;
+    }
+    .word {
+      width: 500px;
+      min-height: 200px;
+      border: 1px solid #aaa;
+    }
+    .word .floated {
+      float: left;
+      width: 150px;
+      height: 80px;
+    }
+    .word .floated img {
+      width: 100%;
+      display: block;
+    }
+    .oh {
+      margin: 0;
+      text-align: left;
+      padding: 10px;
+      color: #fff;
+      background: #32e24f;
+      word-wrap:break-word;
+    }
+    .column-box {
+      width: 500px;
+      margin: 20px;
+      background: #32e24f;
+      min-height: 200px;
+    }
+    .column-box .column {
+      width: 31.33%;
+      float: left;
+      background: #e99922;
+      min-height: 100px;
+      margin: 0 1%;
+      text-align: center;
+      color: #fff;
+    }
+    .column-box .column:last-child {
+      float: none;
+      overflow: hidden;
+    }
+    .bfc {
+      overflow: hidden;
+    }
+    .margin-box {
+      background: #ccc;
+      margin-bottom: 40px;
+      overflow: auto;
+    }
+    .margin-box p {
+      padding: 0;
+      margin: 20px 0;
+      background: #e99922;
+      color: #fff;
+    }
+  </style>
+</head>
+<body>
+  <div class='container'>
+    <div class="float"></div>
+    <div class="float"></div>
+  </div>
+  <div class='word'>
+    <div class='floated'><img src='https://www.w3cplus.com/sites/default/files/blogs/2018/1804/w3cplus-shang.png' /></div>
+    <p class='oh'>ajslkdfjalksjflkajslkdfjalksjflkajsldfjalksjdfklajsdlkfjalksdjflkasjdflkjasajslkdfjalksjflkajslkdfjalksjflkajsldfjalksjdfklajsdlkfjalksdjflkasjdflkjasajslkdfjalksjflkajslkdfjalksjflkajsldfjalksjdfklajsdlkfjalksdjflkasjdflkjasajslkdfjalksjflkajslkdfjalksjflkajsldfjalksjdfklajsdlkfjalksdjflkasjdflkjasajslkdfjalksjflkajslkdfjalksjflkajsldfjalksjdfklajsdlkfjalksdjflkasjdflkjasajslkdfjalksjflkajslkdfjalksjflkajsldfjalksjdfklajsdlkfjalksdjflkasjdflkjasajslkdfjalksjflkajslkdfjalksjflkajsldfjalksjdfklajsdlkfjalksdjflkasjdflkjas</p>
+  </div>
+  <div class='column-box'>
+    <div class='column'>column 1</div>
+    <div class='column'>column 2</div>
+    <div class='column'>column 3</div>
+  </div>
+  <div class='margin-box'>
+    <p>啦啦啦啦啦啦啦啦</p>
+    <p>啦啦啦啦啦啦啦啦</p>
+  </div>
+</body>
+</html>
